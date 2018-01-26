@@ -393,7 +393,7 @@ public enum GryoVersion {
             add(GryoTypeReg.of(LP_NL_O_OB_P_S_SE_SL_Traverser.class, 179));
             add(GryoTypeReg.of(LabelledCounter.class, 180));
             add(GryoTypeReg.of(Stack.class, 181));
-            add(GryoTypeReg.of(ReferenceMap.class, 182));                        // ***LAST ID***
+            add(GryoTypeReg.of(ReferenceMap.class, 182));
 
 
             // placeholder serializers for classes that don't live here in core. this will allow them to be used if
@@ -405,7 +405,7 @@ public enum GryoVersion {
                     "org.apache.tinkerpop.gremlin.driver.ser.ResponseMessageGryoSerializer", 169);
 
             tryAddDynamicType(this, "org.apache.tinkerpop.gremlin.sparql.process.traversal.strategy.SparqlStrategy",
-                    null, 1690);
+                    null, 183);   // ***LAST ID***
         }};
     }
 
