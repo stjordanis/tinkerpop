@@ -57,6 +57,10 @@ import java.util.Iterator;
         method = "*",
         reason = "https://issues.apache.org/jira/browse/TINKERPOP-1976")
 @Graph.OptOut(
+        test = "org.apache.tinkerpop.gremlin.process.traversal.step.map.ConnectedComponentTest",
+        method = "*",
+        reason = "hmmmm")
+@Graph.OptOut(
         test = "org.apache.tinkerpop.gremlin.process.traversal.step.map.PageRankTest",
         method = "*",
         reason = "https://issues.apache.org/jira/browse/TINKERPOP-1976")
