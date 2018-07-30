@@ -19,11 +19,15 @@
 
 package org.apache.tinkerpop.gremlin.process.computer.traversal.step.map;
 
-import org.apache.tinkerpop.gremlin.process.computer.*;
+import org.apache.tinkerpop.gremlin.process.computer.ComputerResult;
+import org.apache.tinkerpop.gremlin.process.computer.GraphFilter;
+import org.apache.tinkerpop.gremlin.process.computer.Memory;
 import org.apache.tinkerpop.gremlin.process.computer.search.path.ShortestPathVertexProgram;
 import org.apache.tinkerpop.gremlin.process.computer.traversal.TraversalVertexProgram;
-import org.apache.tinkerpop.gremlin.process.traversal.*;
-import org.apache.tinkerpop.gremlin.process.traversal.step.*;
+import org.apache.tinkerpop.gremlin.process.traversal.Traversal;
+import org.apache.tinkerpop.gremlin.process.traversal.Traverser;
+import org.apache.tinkerpop.gremlin.process.traversal.step.Configuring;
+import org.apache.tinkerpop.gremlin.process.traversal.step.TraversalParent;
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.Parameters;
 import org.apache.tinkerpop.gremlin.process.traversal.traverser.TraverserRequirement;
 import org.apache.tinkerpop.gremlin.process.traversal.traverser.util.TraverserSet;
@@ -35,7 +39,11 @@ import org.apache.tinkerpop.gremlin.structure.util.StringFactory;
 import org.apache.tinkerpop.gremlin.util.Serializer;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Set;
 
 /**
  * @author Daniel Kuppitz (http://gremlin.guru)
