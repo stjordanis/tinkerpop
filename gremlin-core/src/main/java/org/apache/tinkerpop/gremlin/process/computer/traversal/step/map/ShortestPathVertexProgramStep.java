@@ -136,6 +136,9 @@ public final class ShortestPathVertexProgramStep extends VertexProgramStep imple
                 ProgramVertexProgramStep.ROOT_TRAVERSAL, rootTraversalValue,
                 ProgramVertexProgramStep.STEP_ID, this.id);
 
+        // There are two locations in which halted traversers can be stored: in memory or as vertex properties. In the
+        // former case they need to be copied to this VertexProgram's configuration as the VP won't have access to the
+        // previous VP's memory.
         if (memory.exists(TraversalVertexProgram.HALTED_TRAVERSERS)) {
             final TraverserSet<?> haltedTraversers = memory.get(TraversalVertexProgram.HALTED_TRAVERSERS);
             if (!haltedTraversers.isEmpty()) {
