@@ -2681,29 +2681,24 @@ using the `with()`-modulator with the options given below.
 
 [gremlin-groovy,modern]
 ----
-a = g.withComputer()
-a.V().shortestPath() <1>
-a.V().has('person','name','marko').shortestPath() <2>
-a.V().shortestPath().with(ShortestPath.target, __.has('name','peter')) <3>
-a.V().shortestPath().
+g = g.withComputer()
+g.V().shortestPath() <1>
+g.V().has('person','name','marko').shortestPath() <2>
+g.V().shortestPath().with(ShortestPath.target, __.has('name','peter')) <3>
+g.V().shortestPath().
         with(ShortestPath.edges, Direction.IN).
         with(ShortestPath.target, __.has('name','josh')) <4>
-a.V().has('person','name','marko').
+g.V().has('person','name','marko').
       shortestPath().
         with(ShortestPath.target, __.has('name','josh')) <5>
-a.V().has('person','name','marko').
+g.V().has('person','name','marko').
       shortestPath().
         with(ShortestPath.target, __.has('name','josh')).
         with(ShortestPath.distance, 'weight') <6>
-a.V().has('person','name','marko').
+g.V().has('person','name','marko').
       shortestPath().
         with(ShortestPath.target, __.has('name','josh')).
         with(ShortestPath.includeEdges, true) <7>
-g.inject(a.V().shortestPath().
-           with(ShortestPath.distance, 'weight').
-           with(ShortestPath.includeEdges, true).
-           with(ShortestPath.maxDistance, 1).toList().toArray()).
-  map(unfold().values('name','weight').fold()) <8>
 ----
 
 <1> Find all shortest paths.
@@ -2713,7 +2708,17 @@ g.inject(a.V().shortestPath().
 <5> Find all shortest paths from `marko` to `josh`.
 <6> Find all shortest paths from `marko` to `josh` using a custom distance property.
 <7> Find all shortest paths from `marko` to `josh` and include edges in the result.
-<8> Find all shortest paths using a custom distance property and limit the distance to 1. Inject the result into a OLTP GraphTraversal in order to be able to select properties from all elements in all paths.
+
+[gremlin-groovy,modern]
+----
+g.inject(g.withComputer().V().shortestPath().
+           with(ShortestPath.distance, 'weight').
+           with(ShortestPath.includeEdges, true).
+           with(ShortestPath.maxDistance, 1).toList().toArray()).
+  map(unfold().values('name','weight').fold()) <1>
+----
+
+<1> Find all shortest paths using a custom distance property and limit the distance to 1. Inject the result into a OLTP `GraphTraversal` in order to be able to select properties from all elements in all paths.
 
 *Additional References*
 
