@@ -1276,6 +1276,9 @@ limitations under the License.
                                         <include>org/apache/tinkerpop/gremlin/process/computer/*.java
                                         </include>
                                         <include>
+                                            org/apache/tinkerpop/gremlin/process/computer/clustering/connected/ConnectedComponentVertexProgram.java
+                                        </include>
+                                        <include>
                                             org/apache/tinkerpop/gremlin/process/computer/clustering/peerpressure/PeerPressureVertexProgram.java
                                         </include>
                                         <include>
