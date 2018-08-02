@@ -48,7 +48,6 @@ course, it is possible for there to be more than one path in the graph of the sa
 length three), but this example is not considering that.
 <2> It might be interesting to know the path lengths for all paths between vertex "1" and "5".
 <3> Alternatively, one might wish to do a path length distribution over all the paths.
-<4> The preferred way to get a shortest path in OLAP is the `shortestPath()` step.
 
 The following code block demonstrates how the shortest path from `v[1]` to `v[5]` can be queried in OLAP, using the `shortestPath()` step.
 
